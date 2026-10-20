@@ -1,0 +1,20 @@
+# Dependencias y compilación (se regeneran con npm install / npm run build)
+node_modules/
+dist/
+dist-ssr/
+
+# Video del reel: pesa más de 100 MB (límite de GitHub). Se regenera con reel/fuente/
+reel/*.mp4
+
+# Duplicado comprimido del kit de logos (ya está la carpeta logo-daf/)
+logo-daf.zip
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.log
+
+# Archivo de referencia del cliente (solo local)
+Transformacion-90-Dias.html

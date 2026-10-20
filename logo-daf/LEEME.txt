@@ -1,0 +1,24 @@
+LOGO DAF · daf.inthegym
+=======================
+guia-de-logo-daf.pdf  → Guía de uso: versiones, colores, tipografías y reglas.
+
+svg/  → Vectoriales (para imprenta, diseñadores, letreros, ropa). Se pueden agrandar sin perder calidad.
+png/  → Imágenes en alta resolución (para redes, web, WhatsApp, presentaciones).
+
+Versiones:
+  horizontal_*  → Logo principal (símbolo + nombre en una línea).
+  vertical_*    → Símbolo arriba y nombre abajo (para espacios cuadrados o verticales).
+  simbolo_*     → Solo la "D" con corona (cuando el espacio es pequeño).
+  nombre_*      → Solo el nombre "DAF.INTHEGYM".
+  perfil-redondo*.png → Foto de perfil para Instagram, TikTok, Facebook y WhatsApp.
+  icono-app*    → Ícono cuadrado (app, favicon). Incluye 512, 180 y 32 px.
+
+Colores de cada archivo:
+  color-fondo-oscuro / color-fondo-claro           → con fondo incluido.
+  color-transparente-para-fondo-oscuro / ...-claro → sin fondo (PNG transparente).
+  blanco / negro / azul                            → a un solo color, sin fondo.
+
+Colores de marca: azul #1E7BFF · azul claro #4DB8FF · degradado #3FB0FF → #1257E6 · negro #07080B · blanco #F4F6FA
+Tipografías: Anton (logo), Archivo (títulos), Inter (textos) — gratis en Google Fonts.
+
+Diseño: DLT Development
