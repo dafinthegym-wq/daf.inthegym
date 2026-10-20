@@ -133,8 +133,17 @@ main, .footer { position: relative; z-index: 2; }
 /* ---------- Logo ---------- */
 .logo { display: inline-flex; align-items: center; gap: 10px; }
 .logo__mark { width: 44px; height: 44px; color: var(--text); flex: none; }
-.logo__word { font-family: "Anton", Impact, sans-serif; font-size: 27px; letter-spacing: 0.02em; line-height: 1; display: flex; align-items: baseline; }
+.logo__word { font-family: "Anton", Impact, sans-serif; font-size: 31px; letter-spacing: 0.02em; line-height: 1; display: flex; align-items: baseline; }
 .logo__word i { font-style: normal; color: var(--blue-2); }
+/* Anton (line-height 1): la D ocupa x .04–.46em, y .065–.925em dentro de su caja */
+.logo__word { padding-left: 0.6em; padding-top: 0.08em; }
+.logo__d { position: relative; display: inline-block; }
+.logo__crown { position: absolute; left: 0.25em; top: -0.236em; width: 0.44em; height: 0.246em; transform: translateX(-50%); overflow: visible; filter: drop-shadow(0 0.04em 0.08em rgba(31, 122, 255, 0.45)); }
+.logo__lines { position: absolute; right: calc(100% + 0.03em); top: 0.185em; display: flex; flex-direction: column; align-items: flex-end; gap: 0.13em; }
+.logo__lines span { display: block; height: 0.12em; border-radius: 0.06em; background: linear-gradient(90deg, rgba(63, 176, 255, 0), #3FB0FF 45%, #1F7AFF); }
+.logo__lines span:nth-child(1) { width: 0.54em; }
+.logo__lines span:nth-child(2) { width: 0.42em; }
+.logo__lines span:nth-child(3) { width: 0.3em; }
 .logo__word small { font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: 0.28em; color: var(--muted); margin-left: 7px; }
 
 /* ---------- Nav ---------- */

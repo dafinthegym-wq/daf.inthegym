@@ -201,9 +201,16 @@ export function LogoMark({ className = "" }) {
 export function Logo() {
   return (
     <span className="logo">
-      <LogoMark className="logo__mark" />
       <span className="logo__word">
-        DAF<i>.</i>
+        <span className="logo__d">
+          <svg className="logo__crown" viewBox="20.5 9.5 24 13" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="lcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#3FB0FF" /><stop offset="1" stopColor="#1257E6" /></linearGradient></defs>
+            <path d="M22 22.5 L20.5 13 L27 17.5 L32.5 9.5 L37.5 17.5 L44.5 13 L42.5 22.5 Z" fill="url(#lcg)" />
+          </svg>
+          <span className="logo__lines" aria-hidden="true"><span /><span /><span /></span>
+          D
+        </span>
+        AF<i>.</i>
         <small>INTHEGYM</small>
       </span>
     </span>
