@@ -26,6 +26,8 @@ const appIcon = (size, pad = 0.15) => {
   </svg>`);
 };
 
+// favicon.svg con fondo oscuro: Google lo pone sobre un círculo blanco y el logo transparente (D blanca) no se veía
+writeFileSync(path.join(pub, "favicon.svg"), appIcon(64, 0.06).toString());
 await sharp(appIcon(512, 0.16)).png().toFile(path.join(pub, "icon-512.png"));
 await sharp(appIcon(192, 0.16)).png().toFile(path.join(pub, "icon-192.png"));
 await sharp(appIcon(180, 0.12)).png().toFile(path.join(pub, "apple-touch-icon.png"));
