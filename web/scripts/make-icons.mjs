@@ -30,14 +30,19 @@ await sharp(appIcon(512, 0.16)).png().toFile(path.join(pub, "icon-512.png"));
 await sharp(appIcon(192, 0.16)).png().toFile(path.join(pub, "icon-192.png"));
 await sharp(appIcon(180, 0.12)).png().toFile(path.join(pub, "apple-touch-icon.png"));
 await sharp(appIcon(48, 0.06)).png().toFile(path.join(pub, "favicon-48.png"));
-// favicon.ico (PNG dentro de ICO, compatible con navegadores modernos)
-const png32 = await sharp(appIcon(32, 0.04)).png().toBuffer();
-const ico = Buffer.alloc(22 + png32.length);
-ico.writeUInt16LE(0, 0); ico.writeUInt16LE(1, 2); ico.writeUInt16LE(1, 4);
-ico.writeUInt8(32, 6); ico.writeUInt8(32, 7); ico.writeUInt8(0, 8); ico.writeUInt8(0, 9);
-ico.writeUInt16LE(1, 10); ico.writeUInt16LE(32, 12); ico.writeUInt32LE(png32.length, 14); ico.writeUInt32LE(22, 18);
-png32.copy(ico, 22);
-writeFileSync(path.join(pub, "favicon.ico"), ico);
+// favicon.ico con 16, 32 y 48 px (PNG dentro de ICO). Google pide mínimo 48×48 para el ícono del buscador
+const sizes = [16, 32, 48];
+const pngs = await Promise.all(sizes.map((s) => sharp(appIcon(s, s <= 32 ? 0.04 : 0.06)).png().toBuffer()));
+const head = Buffer.alloc(6 + 16 * sizes.length);
+head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(sizes.length, 4);
+let offset = head.length;
+sizes.forEach((s, i) => {
+  const e = 6 + 16 * i;
+  head.writeUInt8(s, e); head.writeUInt8(s, e + 1); head.writeUInt8(0, e + 2); head.writeUInt8(0, e + 3);
+  head.writeUInt16LE(1, e + 4); head.writeUInt16LE(32, e + 6); head.writeUInt32LE(pngs[i].length, e + 8); head.writeUInt32LE(offset, e + 12);
+  offset += pngs[i].length;
+});
+writeFileSync(path.join(pub, "favicon.ico"), Buffer.concat([head, ...pngs]));
 
 // Imagen para compartir (WhatsApp, Facebook, Google…): 1200×630
 const og = async (lang) => {
