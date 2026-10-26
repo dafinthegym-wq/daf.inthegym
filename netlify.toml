@@ -39,13 +39,6 @@
   status = 301
   force = true
 
-# http://www → directo al dominio principal en un solo salto (sin pasar por https://www)
-[[redirects]]
-  from = "http://www.dafinthegym.com/*"
-  to = "https://dafinthegym.com/:splat"
-  status = 301
-  force = true
-
 # Direcciones viejas con ?lang= → la dirección de cada idioma
 [[redirects]]
   from = "/*"
